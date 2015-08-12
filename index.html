@@ -1,0 +1,476 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Cross-platfrom application development with QML and JavaScript</title>
+
+		<meta name="description" content="This talk will introduce you to Qt Quick, a part of the Qt framework that allows us to build cross-platform mobile and desktop applications, using QML and JavaScript. Without writing a single line of C++ code, we can attain close to native application performance, while allowing developers and designers to work productively.">
+		<meta name="author" content="Antony Guinard">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/night.css" id="theme">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+					<h2>Cross-platform application development with QML and JavaScript</h2>
+
+				</section>
+
+				<section>
+					<h2>Objective</h2>
+
+					<p>
+						Present Qt (with QML and JavaScript) as a good solution to develop cross-platform (desktop, embedded, and mobile) applications.
+					</p>	
+				</section>
+
+				<section>
+					<img class="stretch" src="img/Qt_logostrap_CMYK.png">
+				</section>
+
+				<section>
+					<img class="stretch" src="img/theqtcompany20y.png">					
+				</section>
+
+
+				<section>
+					<h2>Qt Functionality</h2>
+
+					<ul>
+					<li><a href="topics-app-development.html">Development Tools</a></li>
+					<li><a href="topics-ui.html">User Interfaces</a></li>
+					<li><a href="topics-data-storage.html">Data Storage</a></li>
+					<li><a href="multimediaoverview.html">Multimedia</a></li>
+					<li><a href="topics-network-connectivity.html">Networking and Connectivity</a></li>
+					<li><a href="topics-graphics.html">Graphics</a></li>
+					</ul>
+					<ul>
+					<li><a href="topics-web-content.html">Integrating Web Content</a></li>
+					<li><a href="mobiledevelopment.html">Mobile APIs</a></li>
+					<li><a href="qmlapplications.html">QML Applications</a></li>
+					<li><a href="topics-scripting.html">Scripting</a></li>
+					<li><a href="internationalization.html">Internationalization</a></li>
+					<li><a href="testing-and-debugging.html">Testing and Debugging</a></li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>User Interfaces in Qt</h2>
+
+					<p>
+						<ul>
+						<li>Qt Widgets</li>
+						<li>Qt Webkit / Qt WebEngine</li>
+						<li>Qt Quick</li>
+						</ul>	
+					</p>
+				</section>
+								
+				<section>
+					<h2>Qt Widgets</h2>
+
+					<p>Traditional way to develop GUIs on the Desktop in C++</p>
+
+					<img src="img/windowsvista-tabwidget.png"><img src="img/gtk-calendarwidget.png"><img src="img/windowsxp-treeview.png">					
+				</section>
+
+				<section>
+					<h2>Qt Widgets</h2>
+
+					<ul>
+						<li>Native look and feel</li>
+						<li>Standard industry widgets</li>
+						<li>Model/View programming</li>
+					</ul>
+					<ul>
+						<li>Hard to get custom look and feel</li>
+						<li>No hardware accelerated graphics</li>
+						<li>No animations/graphical effects</li>							
+					</ul>
+					
+				</section>
+
+
+				<section>
+					<h2>Qt WebKit & Qt WebEngine</h2>
+
+					Integrate web content
+					<table>
+						<tr>
+							<td width="50%"><img src="img/webkit.png"></td>
+							<td width="50%"><img src="img/chromium.png"></td>
+						</tr>
+					</table>
+											
+				</section>
+												
+
+				<section>
+					<h2>Qt WebKit & Qt WebEngine</h2>
+					
+					<ul>
+						<li>Leverage existing web-dev skills</li>
+						<li>Single look and feel across all platforms</li>
+						<li>Package existing web content</li>
+						<li>C++, JavaScript and QML Qt APIs</li>
+					</ul>				
+				</section>
+
+				<section data-background="img/devicesjpg.jpg">
+					
+				</section>
+				
+				<section>
+					<h2>Qt Quick</h2>
+
+					<p>
+						<ul>
+							<li>Developed with mobile platforms in mind</li>
+							<li>Optimised for touch screens</li>
+							<li>Custom look and feel</li>
+							<li>Fluid animated UIs</li>
+							<li>Graphical effects</li>
+							<li>Hardware acceleration</li>							
+						</ul>
+					</p>					
+				</section>
+
+				<section>
+					<h2>Qt Quick</h2>
+
+					<p>
+						<ul>
+							<li>Rapid UI development</li>
+							<li>QML and JavaScript (optionally C++)</li>
+							<li>Declarative user interfaces with property bindings</li>				
+						</ul>
+					</p>					
+				</section>
+				
+				<section>
+					<h2>Qt Quick</h2>
+					<p>
+						QML Language
+					</p>
+					<blockquote cite="http://doc.qt.io/qt-4.8/qdeclarativeintroduction.html">
+						&ldquo;QML is a <b>declarative language</b> designed to describe the user interface of a program: both what it looks like, and how it behaves. In QML, a user interface is specified as a <b>tree of objects with properties</b>.&rdquo;
+					</blockquote>
+				</section>
+
+
+
+
+				<section>
+					<h2>Qt Quick</h2>
+
+					<p>
+						Basic QML syntax
+					</p>
+
+					<pre style="float: left; width: 70%;"><code data-trim contenteditable>
+import QtQuick 1.1
+
+Rectangle {
+    width: 200
+    height: 200
+    color: "lightgrey"
+
+    Image {
+        source: "pics/logo.png"
+        anchors.centerIn: parent
+    }
+}
+					</code></pre>
+
+					<img src="img/basic-qml.png" style="float: left; margin-top: 50px;">					
+				</section>
+
+				<section>
+					<h2>Qt Quick</h2>
+
+					<p>
+						Expressions and property bindings
+					</p>
+
+					<pre><code data-trim contenteditable>
+Item {
+    width: 100 * 3
+    height: 50 + 22
+
+    Rectangle {
+        width: parent.width - 50
+        height: 100
+        color: "yellow"
+    }
+}
+					</code></pre>					
+				</section>
+
+
+				<section>
+					<h2>Qt Quick</h2>
+
+					<p>
+						Signal Handlers
+					</p>
+
+					<pre><code data-trim contenteditable>
+Item {
+    width: 100; height: 100
+
+    MouseArea {
+        anchors.fill: parent
+        onClicked: {
+            console.log("mouse button clicked")
+        }
+    }
+}
+					</code></pre>					
+				</section>
+
+				<section>
+					<h2>Examples</h2>
+				</section>
+
+				<section>
+					<h2>Same game</h2>
+
+					<img src="img/qtquick-demo-samegame-med-1.png">
+					<img src="img/qtquick-demo-samegame-med-2.png">
+					
+				</section>
+
+				<section>
+					<h2>Tweet Search</h2>
+					
+					<img src="img/qtquick-demo-tweetsearch-med-1.png">
+					<img src="img/qtquick-demo-tweetsearch-med-2.png">
+				</section>
+
+				<section>
+					<h2>StocQt</h2>
+					
+					<img src="img/qtquick-demo-stocqt.png">
+				</section>
+
+				<section>
+					<h2>Qt Quick Controls</h2>
+					
+					<td><img src="img/qtquickcontrols-example-gallery-osx.png"></td>
+					<td><img src="img/qtquickcontrols-example-gallery-android.png"></td>
+				</section>	
+
+				<section data-state="load-chart">
+					<h2>Lines of code</h2>
+					<div id="chartContainer" style="height: 600px;">
+  					</div>
+				</section>			
+
+				<section>
+					<h1>Thank you.</h1>
+					<h2>Questions?</h2>
+					<a href="mailto:antony.guinard@gmail.com">antony.guinard@gmail.com</a>
+				</section>	
+
+
+				<section>
+					
+					<section>
+						<h2>Bonus slides</h2>				
+					</section>
+
+					<section>
+						<h2>Supported platforms</h2>
+
+						<ul>
+						<li><a href="windows-support.html">Windows</a></li>
+						<li><a href="linux.html">Linux/X11</a></li>
+						<li><a href="osx.html">OS X</a></li>
+						
+						<br />
+						
+						<li><a href="platform-notes-qtee.html">Embedded Android</a></li>
+						<li><a href="embedded-linux.html">Embedded Linux</a></li>
+						<li><a href="wince-with-qt-introduction.html">Windows Embedded (Compact and Standard)</a></li>
+						<li>Real-Time Operating Systems, such as <a href="platform-notes-qnx.html#qnx">QNX</a>, <a href="platform-notes-vxworks.html#vxworks">VxWorks</a> and INTEGRITY</li>
+						
+						<br />
+
+						<li><a href="android-support.html">Android</a></li>
+						<li><a href="ios-support.html">iOS</a></li>
+						<li><a href="winrt-support.html">WinRT</a> (including Windows Phone)</li>
+						</ul>
+
+					</section>
+
+					<section>
+						<h2>Qt WebKit & Qt WebEngine</h2>
+
+						<img src="img/corkdev-qml-browser.png">					
+					</section>
+
+					<section>
+						<h2>Qt WebKit & Qt WebEngine</h2>
+
+						<img src="img/qt-creator-webkit-help.png">					
+					</section>
+
+					<section>
+						<h2>Qt WebKit & Qt WebEngine</h2>
+
+						<img src="img/phantomjs-logo.png">	
+
+						<blockquote cite="http://phantomjs.org/">
+							&ldquo;<b>PhantomJS</b> is a headless WebKit scriptable with a JavaScript API. It has fast and native support for various web standards: DOM handling, CSS selector, JSON, Canvas, and SVG.&rdquo;
+						</blockquote>				
+					</section>
+				</section>
+
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+		<script src="lib/js/canvasjs.min.js"></script>
+
+		<script>
+
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				slideNumber: true ,
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+		<script type="text/javascript">
+			function renderChart() {
+				var chart = new CanvasJS.Chart("chartContainer", {
+
+					animationEnabled: true,
+					axisY2:{
+						interval: 300
+					},
+					toolTip: {
+						shared: true
+					},
+					legend:{
+						verticalAlign: "bottom",
+						horizontalAlign: "center"
+					},
+
+					data: [
+						{     
+							type: "stackedBar",
+							showInLegend: true,
+							name: "QML",
+							axisYType: "secondary",
+							dataPoints: [
+								{y: 0, label: "TodoMVC"  },
+								{y: 759, label: "StocQt"   },  
+								{y: 477, label: "Tweet search" }, 
+								{y: 1004, label: "Same game"}          
+							]
+						},
+						{     
+							type: "stackedBar",
+							showInLegend: true,
+							name: "JavaScript",
+							axisYType: "secondary",
+							dataPoints: [
+								{y: 1158, label: "TodoMVC"  },
+								{y: 414, label: "StocQt"   }, 
+								{y: 269, label: "Tweet search" }, 
+								{y: 669, label: "Same game" }         
+							]
+						},
+						{     
+							type: "stackedBar",
+							showInLegend: true,
+							name: "HTML",
+							axisYType: "secondary",
+							dataPoints: [
+								{y: 51, label: "TodoMVC"  },
+								{y: 0, label: "StocQt"   },  
+								{y: 0, label: "Tweet search" },
+								{y: 0, label: "Same game" }          
+							]
+						},
+						{
+							type: "stackedBar",
+							showInLegend: true,
+							name: "CSS",
+							axisYType: "secondary",
+							dataPoints: [
+								{y: 151, label: "TodoMVC"  },
+								{y: 0, label: "StocQt"   },  
+								{y: 0, label: "Tweet search" },
+								{y: 0, label: "Same game" }          
+							]
+						}
+					]
+				});
+			    chart.render();
+			}
+
+			// Handle case when opening on chart slide
+			Reveal.addEventListener( 'ready', function( event ) {
+			    renderChart();
+			});
+
+			Reveal.addEventListener( 'load-chart', function( event ) {
+			    renderChart();
+			} );
+
+		  </script>
+
+	</body>
+</html>
